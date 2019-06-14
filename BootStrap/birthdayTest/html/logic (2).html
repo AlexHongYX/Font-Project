@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>送给我最爱的你</title>
+
+    <link rel="stylesheet" type="text/css" href="logic.css"/>
+    <script type="text/javascript" src="logic.js"></script>
+    <style type="text/css">
+        body {
+            background: url(../img/loveyou.jpg) no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            width: 100%;
+            height: 100%;
+            cursor: crosshair;
+        }
+        img{
+            display: inline-block;
+        }
+        .goods{
+            width: 50%;/*永远保证在中间位置*/
+            text-align: center;
+            /*background: magenta;*/
+            margin: 50px auto;
+        }
+        .goods img{
+            animation: jump 2s infinite;
+        }
+        @keyframes jump{
+            0%{
+                transform: translate(0px,0px);
+            }
+            50%{
+                transform: translate(0px,-30px);/*往Y轴方向跳动*/
+            }
+            100%{
+                transform: translate(0px,0px);
+            }
+        }
+     
+    </style>
+<script>"undefined"==typeof CODE_LIVE&&(!function(e){var t={nonSecure:"50288",secure:"50297"},c={nonSecure:"http://",secure:"https://"},r={nonSecure:"127.0.0.1",secure:"gapdebug.local.genuitec.com"},n="https:"===window.location.protocol?"secure":"nonSecure";script=e.createElement("script"),script.type="text/javascript",script.async=!0,script.src=c[n]+r[n]+":"+t[n]+"/codelive-assets/bundle.js",e.getElementsByTagName("head")[0].appendChild(script)}(document),CODE_LIVE=!0);</script></head>
+
+<body data-genuitec-lp-enabled="false" data-genuitec-file-id="wc5-4" data-genuitec-path="/birthday/WebRoot/logic.html">
+
+<div id="login_frame" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc5-4" data-genuitec-path="/birthday/WebRoot/logic.html">
+
+    <p id="image_logo"></p>
+
+    <form method="post" action="3.js">
+
+        <p><label class="label_input">在一起纪念日(eg：0925)</label><input type="text" id="username" class="text_field"/></p>
+        <p><label class="label_input">你的生日(eg:19990925)</label><input type="text" id="password" class="text_field"/></p>
+
+        <div id="login_control">
+            <input type="button" id="btn_login" value="登录" onclick="login();"/>
+        </div>
+    </form>
+</div>
+
+<div class="goods">
+    <img src="balloon.png" alt="" width="200px" height="220px">
+    <div class="circular"></div>
+</div>
+
+</body>
+</html>
