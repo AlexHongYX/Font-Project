@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>frameTest</title>
+	</head>
+	<!-- <body>
+		
+	</body> -->
+	<frameset rows="20%,*,30%" >
+		<!-- 链接每个具体的页面-->
+		<frame src="https://www.baidu.com" />
+		<!-- 竖向划分 -->
+		<frameset cols="15%,*">
+			<!-- 需要和frame中的cols顺序保持一致 -->
+			<frame src="menu.html" />
+			
+			<frame src="index.html" name="hello" />
+		</frameset>
+		<frame src="https://www.sina.com" />
+	</frameset>
+</html>
