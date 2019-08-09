@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS边框</title>
+	<!-- 
+		div标签的边框显示：
+				1）边框的颜色
+				   边框的宽度
+				   边框的样式（单实线，双实线，虚线，点）——必须指定样式才能显示边框
+	 
+	 -->
+		<style>
+			 div {
+				 /* 指定div块标签的宽度和高度*/
+				 width: 200px;
+				 height: 200px;
+				 /* 块标签：四个边*/
+				 /* 边框颜色*/
+			/* 	 border-top-color: red;
+				 border-left-color: blue;
+				 border-right-color: green;
+				 border-bottom-color: chocolate; */
+				 /* 边框宽度*/
+				 border-top-width:10px;
+				 border-left-width:20px;
+				 border-right-width:30px;
+				 border-bottom-width:40px;
+				 /* 四个边框的样式
+					div标签要显示边框必须指定style
+				*/
+				 border-top-style: solid;	
+				 border-left-style: dashed;	
+				 border-right-style: dotted;	
+				 border-bottom-style: double;	
+				 
+				 /* 
+					颜色，宽度，样式都有简单样式（简单样式写法中才会遵循一下两点）
+					1）默认顺序：上 右 下 左
+					2）如果某一个边没有设置边框颜色/宽度/样式，会补齐对边的颜色/宽度/样式
+						如果只有一个数据，则四个边的该属性都是这个数据
+				 */
+				border-color: red blue;
+				
+				/**
+				 * 边框的简写属性
+					border:border-width border-style border-color;
+				 */
+				border: 1px solid #000;
+			 }
+		</style>
+	</head>
+	<body>
+		<div>div的内容</div>
+	</body>
+</html>

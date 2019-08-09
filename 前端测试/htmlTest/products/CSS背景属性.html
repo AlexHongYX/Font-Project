@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS背景</title>
+		<style>
+			body {
+				/**
+				 * CSS背景相关的常用属性
+					一旦设置image就需要设置repeat就需要设置position
+				 */
+				/**
+				 * 背景颜色
+				 */
+				/* background-color: #0000FF; */
+				/**
+				 * 背景图片
+				 */
+				background-image: url(../img/车票.jpg);
+				/**
+				 * 设置背景图片是否重复以及如何重复
+					默认值为repeat（x轴，y轴）都在重复
+				 */
+				background-repeat: no-repeat;
+				/**
+				 * 设置背景图片的起始位置
+					默认值：top（显示图片的位置） left（显示浏览器位置）
+						图片位置：top（图片全部）/center（图片的一半）/bottom（不显示）
+						浏览器位置：left（浏览器左侧），center（浏览器中间），right（浏览器右侧）
+				 */
+				background-position: top center;
+				/**
+				 * 背景简写属性background
+					顺序：
+						background-color
+						background-image
+						background-repeat
+						background-position
+				 */
+				background: gray url(../img/车票.jpg) no-repeat top center;
+			}
+		</style>
+	</head>
+	<body>
+		
+	</body>
+</html>
