@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>js类型转换函数</title>
+		<script>
+			/**
+			 * string-->整数值：parseInt(变量);
+			 * 	特点：在转换过程中，遇到非数值字符的时候就停止转换了（值为NaN）
+			 * 			"10abc".parseInt()-->10
+			 * 			"mm10ac".parseInt()-->NaN
+			 * 
+			 * string-->小数值：parsefloat(变量)
+			 */
+			var a = "10";
+			document.write("转换前：a="+a+"，类型为"+typeof(a)+"<br/>");
+			// 转换
+			a = parseInt(a);
+			document.write("转换后：a="+a+"，类型为"+typeof(a)+"<br/>");
+			/**
+			 * ==语句：string和number比较
+			 * 			string->自动转换为number，再进行比较
+			 * switch：不会自动转换，需要手动转换(parseInt)
+			 */
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
