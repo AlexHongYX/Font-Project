@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/**
+			 * 不通过外部的对象ArrayUtil(自定义对象)，如何给Array数组对象(内置对象)追加search()与max()
+			 * 
+			 * 不能给Array中直接追加
+			 * 
+			 * js原型操作：
+			 * 		原理：如果给原型对象(Prototype)中追加额外的方法，在内置对象中引入原型对象，那么当前额外的方法会自动追加到内置对象中
+			 * 内置对象中：通过原型属性引入原型对象
+			 * 		this.prototype = new Prototype();
+			 * 
+			 * !!!
+			 * 简写格式：js内置对象.prototype<原型属性>.追加额外的方法名=function(参数){...}
+			 * !!!
+			 * 
+			 * 原型：
+			 * 		1)prototype属性就是给内置对象追加额外的方法使用
+			 * 		2)只要使用内置对象.原型属性.额外方法名=function(){}可以将当前方法追加到内置对象中去
+			 */
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script>
+		/**
+		 * Array对象
+				格式1：new Array()：不指定数组长度
+				格式2：new Array(size)：指定长度——>长度会被不断的扩容
+				格式3：arrayObj = [元素1，元素2...]
+			
+			注意：
+				1、在JS中定义数组，不会出现角标越界的问题
+				2、数组的长度是不断可以扩容的
+				3、数组中可以存储任意类型的元素
+			
+			内置方法：
+				join(var str)：将数组中的元素通过特定str拼接成String
+				reverse()：数组元素进行反转
+		 */
+		// var arr = new Array();
+		var arr = ["php","python","hadoop"];
+		strArray = arr.join("-");
+		document.write(strArray);
+	</script>
+	<body>
+	</body>
+</html>
