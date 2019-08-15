@@ -22,6 +22,28 @@
 			 * 		1)prototype属性就是给内置对象追加额外的方法使用
 			 * 		2)只要使用内置对象.原型属性.额外方法名=function(){}可以将当前方法追加到内置对象中去
 			 */
+			var arr = [10,25,30,17,8];
+			Array.prototype.search=function(target){
+				for(var i=0;i<this.length;i++){
+					if(this[i]==target){
+						return i;
+					}
+				}
+				return -1;
+			}
+			Array.prototype.max=function(){
+				var max = this[0];
+				for(var i=1;i<this.length;i++){
+					if(this[i]>max){
+						max = this[i];
+					}
+				}
+				return max;
+			}
+			var index = arr.search(30);
+			document.write("30的位置在:"+index+"<br/>");
+			var max = arr.max();
+			document.write("最大值为："+max+"<br/>");
 		</script>
 	</head>
 	<body>

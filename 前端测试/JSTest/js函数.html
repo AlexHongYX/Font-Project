@@ -25,6 +25,16 @@
 				5、js中存在一个默认的数组，数组名称：arguments
 						作用：将实际参数和形式参数进行映射（一一绑定）
 		 */
+		function add(x,y){
+			alert(arguments.length);
+			for(var i=0;i<arguments.length;i++){
+				document.write(arguments[i]+"&nbsp;");
+			}
+			var s = x+y;
+			document.write("两数之和为："+s);
+		}
+		
+		add(10,20);
 	</script>
 	<body>
 	</body>

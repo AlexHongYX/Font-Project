@@ -14,7 +14,20 @@
 					}
 			 */
 			var arr = [10,20,30,40];
-			
+			// 定义对象:使用function 对象(形式参数){}
+			function Person(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			for(var i in arr){
+				document.write(arr[i]+"&nbsp;");
+			}
+			document.write("<hr/>");
+			var person = new Person("hello",15);
+			for(var j in person){
+				document.write(person[j]+"<br/>");
+			}
+			document.write("<hr/>");
 		</script>
 	</head>
 	<body>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Date对象</title>
+	</head>
+	<script>
+		/**
+		 * Date对象——>系统时间
+		 * 获取年：getFullYear()
+		 * 获取月：getMonth()——0-11
+		 * 获取日：getDate()
+		 * 获取时：getHours()
+		 * 获取分：getMinutes()
+		 * 获取秒：getSeconds()
+		 */
+		
+		/**
+		 * 网页时钟
+		 * 	1、创建日期对象
+		 * 	2、拼接当前年月日时分秒 dateStr
+		 * 	3、获取span标签对象
+		 * 	4、设置span对象的innerHtml属性
+		 * 	5、设置定时器
+		 */
+		function getDate(){
+			var date = new Date();
+			var dateStr = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+"&nbsp;&nbsp;"
+				+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+			
+			var span = document.getElementById("span_tip");
+			span.innerHTML = dateStr;
+		}
+		
+		/**
+		 * js定时器
+		 * 		window.setTimeout("任务()"，毫秒值);——经过多少毫秒后执行一次任务
+		 * 		window.setInterval("任务()"，毫秒值);——每经过多少毫秒后执行一次任务
+		 */
+		setInterval("getDate()",1000);
+	</script>
+	<body>
+		当前系统时间为：<span id="span_tip"></span>
+	</body>
+</html>

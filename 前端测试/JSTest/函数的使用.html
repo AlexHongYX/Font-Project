@@ -3,11 +3,35 @@
 	<head>
 		<meta charset="utf-8">
 		<title>函数的使用</title>
+		<script>
+			function getMonth(){
+				var month = document.getElementById("month").value;
+				var ret = 0;
+				if(month==1||month==3||month==5||month==7||month==8||month==10||month==12){
+					ret = 31;
+				}else if(month==4||month==6||month==9||month==11){
+					ret = 30;
+				}else if(month==2){
+					ret = 28;
+				}else{
+					ret = "error month";
+				}
+				var div = document.getElementById("div1");
+				/**
+				 * innerHTML 属性用于获取或替换 HTML 元素的内容。
+				 * （可以直接获取，也可以替换（Object.innerHTML=xxx））
+				 */
+				div.innerHTML=ret+"<br/>";
+			}
+		</script>
 	</head>
 	<body>
 <!-- 		事件编程三要素：
 			1)事件源
 			2)编写事件监听器：定义函数
 			3)绑定事件监听器：在事件源的位置进行绑定 -->
+			请输入月份的值：<input type="text" id="month" />
+			<input type="button" value="查询" onclick="getMonth()" /><hr />
+			<div id="div1"></div>
 	</body>
 </html>
