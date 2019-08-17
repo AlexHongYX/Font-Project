@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>js计算器</title>
+		<link href="css/Calc.css" rel="stylesheet" />
+<!-- 		<script src="js/jquery-1.11.0.js"></script> -->
+	</head>
+	<body>
+<!-- 		
+		1)页面布局
+			table:5行4列 表格上面有个input文本框
+			div+css:层级布局 
+		2)给清除键/退格键/显示框/等号单独设置id属性
+			给数字键(包含小数点)/运算符键设置class属性
+		3)通过id属性/class属性获取按键对象
+-->
+		<center>
+			<input id="show" disabled="disabled" value="0"/>
+			<table align="center">
+				<tr>
+					<td id="clear">C</td>
+					<td id="del"><-</td>
+					<td class="operator">%</td>
+					<td class="operator">/</td>
+				</tr>
+				<tbody>
+					<tr>
+						<td class="number">7</td>
+						<td class="number">8</td>
+						<td class="number">9</td>
+						<td class="operator">*</td>
+					</tr>
+					<tr>
+						<td class="number">4</td>
+						<td class="number">5</td>
+						<td class="number">6</td>
+						<td class="operator">-</td>
+					</tr>
+					<tr>
+						<td class="number">1</td>
+						<td class="number">2</td>
+						<td class="number">3</td>
+						<td class="operator">+</td>
+					</tr>
+					<tr>
+						<td colspan="2">0</td>
+						<td class="number">.</td>
+						<td id="result">=</td>
+					</tr>
+				</tbody>
+			</table>
+		</center>
+	</body>
+	<script>
+		var firstVal = "";
+		var secondVal = "";
+		var operatorVal = "";
+			
+		var clear = document.getElementById("clear");
+		var del = document.getElementById("del");
+		var show = document.getElementById("show");
+		var result = document.getElementById("result");
+		
+		var numbers = document.getElementsByClassName("number");
+		var operators = document.getElementsByClassName("operator");
+		
+		for(var i=0;i<numbers.length;i++){
+			numbers[i].onclick = function(){
+// 				var text = this.innerText;
+// 				alert(text);
+				// 小数点不能成为第一位
+				if(this.innerText=="."){
+					// 如果当前数字中不存在".",并且当前数字的长度不为空
+					if(firstVal.indexOf(".")==-1&&firstVal.length>=1){
+						firstVal += numbers[i].innerText;
+						alert(firstVal);
+						show.value = firstVal;
+					}
+				}else{
+					firstVal += this.innerText;
+					show.value = firstVal;
+				}
+			}
+		}
+		
+		for(var j=0;i<operators.length;j++){
+			operators[j].onclick = function(){
+				/**
+				 * 判断当前用户是点击等号还是继续点击运算符
+				 * 		由于之后计算结果会保存在secondVal中，因此
+				 * 			若secondVal==""：将要点击=
+				 * 			若secondVal!=""：继续点击运算符
+				 */
+				
+			}
+		}
+			
+	</script>
+</html>
