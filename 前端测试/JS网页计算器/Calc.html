@@ -16,12 +16,12 @@
 		3)通过id属性/class属性获取按键对象
 -->
 		<center>
-			<input id="show" disabled="disabled" value="0"/>
+			<input id="show" disabled="disabled"/>
 			<table align="center">
 				<tr>
 					<td id="clear">C</td>
 					<td id="del"><-</td>
-					<td class="operator">%</td>
+					<td class="operator"></td>
 					<td class="operator">/</td>
 				</tr>
 				<tbody>
@@ -44,7 +44,7 @@
 						<td class="operator">+</td>
 					</tr>
 					<tr>
-						<td colspan="2">0</td>
+						<td colspan="2" class="number">0</td>
 						<td class="number">.</td>
 						<td id="result">=</td>
 					</tr>
@@ -73,26 +73,125 @@
 				if(this.innerText=="."){
 					// 如果当前数字中不存在".",并且当前数字的长度不为空
 					if(firstVal.indexOf(".")==-1&&firstVal.length>=1){
-						firstVal += numbers[i].innerText;
-						alert(firstVal);
-						show.value = firstVal;
+						firstVal += this.innerText;
+						// alert(firstVal);
+						show.value += firstVal.substring(firstVal.length-1,firstVal.length);
 					}
 				}else{
 					firstVal += this.innerText;
-					show.value = firstVal;
+// 					if(secondVal==""&&){
+// 						show.value = firstVal;
+// 					}else{
+// 						show.value += firstVal;
+// 					}
+// 					var showValue = show.value;
+// 					showValue += firstVal%10;
+// 					show.value = showValue;
+
+					// 经过大量的测试,show.value要出现类似xx+xx的操作,每次需要+=firstVal的每一位
+					if(firstVal.length>1){
+						show.value += firstVal.substring(firstVal.length-1,firstVal.length);
+					}else{
+						show.value += firstVal%10;
+					}
+					
 				}
 			}
 		}
 		
-		for(var j=0;i<operators.length;j++){
+		for(var j=0;j<operators.length;j++){
 			operators[j].onclick = function(){
 				/**
-				 * 判断当前用户是点击等号还是继续点击运算符
-				 * 		由于之后计算结果会保存在secondVal中，因此
-				 * 			若secondVal==""：将要点击=
-				 * 			若secondVal!=""：继续点击运算符
+				 * 判断此时到底secondVal是否为空
+				 * 		若为空，则表示是第一次进行的运算，则直接将firstVal的值赋给secondVal即可
+				 * 		若不为空，则表示在已经运算过的结果的基础上，再次运算(此时该点击"="，或者再点击一个运算符自动出当前的结果)
 				 */
-				
+				if(secondVal==""){
+					// 为空
+					secondVal = firstVal;
+					firstVal = "";
+					operatorVal = this.innerText;
+					show.value += operatorVal;
+				}else{
+					// 不为空,点击"="，或者再点击一个运算符自动出当前的结果
+					// 若正常输入一个值
+					if(firstVal != ""){
+						resultFun();
+					}
+					// 若没正常输入一个值,再点击运算符,相当于是在更新运算符呢
+					operatorVal = this.innerText;
+					
+					// 先将显示的页面中最后一个字符删掉
+					var showValue = show.value;
+					showValue = showValue.substring(0,showValue.length-1);
+					show.value = showValue;
+					// 再将已经更新过的操作符显示
+					show.value += operatorVal;
+				}
+			}
+		}
+		
+		// 清除逻辑
+		clear.onclick = function(){
+			// 将所有的值清空即可
+			firstVal = "";
+			secondVal = "";
+			operatorVal="";
+			show.value="";
+		}
+		// 退格逻辑
+		del.onclick = function(){
+			
+			// 先判断当前有值没
+			if(firstVal.length!= 0){
+				firstVal = firstVal.substring(0,firstVal.length-1);
+				// show.value = firstVal;
+				// 将显示的页面中最后一个字符删掉
+				// 显示的字符串删除最后一个字符
+				var showValue = show.value;
+				showValue = showValue.substring(0,showValue.length-1);
+				show.value = showValue;
+			}
+			
+			// 遇到操作符就不能删除（只能修改，在遍历时进行修改）,刚好保证了操作符前面的数字也不能再删除
+		}
+		
+		// "="逻辑
+		result.onclick = function(){
+			resultFun();
+		}
+		
+		function resultFun(){
+			var one = new Number(secondVal);  // 代表的是第一个操作数<保存在secondVal中>
+			var two = new Number(firstVal);   // 代表的是第二个操作数
+			// 运算结果
+			var ret = null;
+			switch(operatorVal){
+				case "+":
+					ret = one+two;
+					break;
+				case "-":
+					ret = one-two;
+					break;
+				case "*":
+					ret = one*two;
+					break;
+				case "/":
+					if(two==0){
+						firstVal = "";
+						secondVal = "";
+						operatorVal = "";
+					}else{
+						ret = one/two;
+					}
+					break;
+			}
+			if(two == 0){
+				show.value = "除数不能为0";
+			}else {
+				secondVal = new Number(ret).toFixed(6);
+				firstVal = "";
+				show.value = secondVal;
 			}
 		}
 			
